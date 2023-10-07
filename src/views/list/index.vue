@@ -1,5 +1,8 @@
 <template>
   <div class="p-10">
+    <div>
+
+    </div>
     <ul role="list" class="divide-y divide-gray-100">
       <li v-for="person in people" :key="person.email" class="flex justify-between gap-x-6 py-5">
         <div class="flex min-w-0 gap-x-4">
@@ -23,6 +26,8 @@
         </div>
       </li>
     </ul>
+
+    <addList />
     <setName v-if="showSetName" @close="showSetName = false"/>
   </div>
 </template>
@@ -30,8 +35,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { getName } from '@/utils/auth'
-import setName from '../login/set-name.vue'
 import { message } from 'ant-design-vue'
+
+import setName from '../login/set-name.vue'
+import addList from './add-list.vue'
 
 const showSetName = ref<boolean>(false)
 const people = [
